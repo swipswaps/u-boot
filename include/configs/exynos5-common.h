@@ -89,7 +89,7 @@
 /* Configuration of BL1, BL2, ENV Blocks on mmc */
 #define CONFIG_RES_BLOCK_SIZE	(512)
 #define CONFIG_BL1_SIZE	(16 << 10) /*16 K reserved for BL1*/
-#define CONFIG_BL2_SIZE	(512UL << 10UL) /* 512 KB */
+#define CONFIG_BL2_SIZE	(512UL << 11UL) /* 1 MB */
 #define CONFIG_ENV_SIZE	(16 << 10) /* 16 KB */
 
 #define CONFIG_BL1_OFFSET	(CONFIG_RES_BLOCK_SIZE + CONFIG_SEC_FW_SIZE)
