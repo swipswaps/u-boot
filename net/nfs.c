@@ -499,6 +499,9 @@ static int nfs_lookup_reply(uchar *pkt, unsigned len)
 		return -1;
 	}
 
+	if (((uchar *)&(rpc_pkt.u.reply.data[0]) - (uchar *)(&rpc_pkt) + NFS_FHSIZE) > len)
+		return -NFS_RPC_DROP;
+
 	memcpy(filefh, rpc_pkt.u.reply.data + 1, NFS_FHSIZE);
 
 	return 0;
