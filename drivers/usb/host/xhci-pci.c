@@ -13,6 +13,10 @@
 #include <usb.h>
 #include <usb/xhci.h>
 
+__weak void xhci_pci_fixup(struct udevice *dev)
+{
+}
+
 static void xhci_pci_init(struct udevice *dev, struct xhci_hccr **ret_hccr,
 			  struct xhci_hcor **ret_hcor)
 {
@@ -41,6 +45,8 @@ static int xhci_pci_probe(struct udevice *dev)
 {
 	struct xhci_hccr *hccr;
 	struct xhci_hcor *hcor;
+
+	xhci_pci_fixup(dev);
 
 	xhci_pci_init(dev, &hccr, &hcor);
 
